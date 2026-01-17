@@ -5,12 +5,15 @@ Includes all endpoint routers for version 1 of the API.
 
 from fastapi import APIRouter
 
-from app.api.v1 import games, hacks, health, metadata, translations
+from app.api.v1 import games, hacks, health, logs, metadata, translations
 
 router = APIRouter(prefix="/v1")
 
 # Health check
 router.include_router(health.router, tags=["Health"])
+
+# Logging endpoint
+router.include_router(logs.router)
 
 # Metadata/lookup endpoints
 router.include_router(metadata.router)

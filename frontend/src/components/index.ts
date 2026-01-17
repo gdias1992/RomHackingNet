@@ -6,3 +6,6 @@ export * from "./shared";
 
 // Layout components
 export * from "./layout";
+
+// Error handling
+export { ErrorBoundary } from "./ErrorBoundary";

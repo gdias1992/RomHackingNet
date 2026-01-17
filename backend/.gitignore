@@ -20,3 +20,6 @@ htmlcov/
 *.sqlite
 *.sqlite3
 !romhacking.net_meta.sqlite # In case you want to track a small mock db, but usually safer to ignore all
+
+# Logs
+logs/
