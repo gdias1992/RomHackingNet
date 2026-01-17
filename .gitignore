@@ -1,0 +1,15 @@
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project-specific
+.romhacking/
+
+# Python/Node (if accidentally placed in root)
+__pycache__/
+node_modules/
+.env
