@@ -21,15 +21,25 @@ LOG_FORMAT = "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 
-def setup_logging() -> None:
+def setup_logging(reset_logs: bool = True) -> None:
     """
     Initialize the logging system with rotating file handlers.
     
     Creates the logs directory if it doesn't exist and configures
     handlers for application, error, access, and frontend logs.
+    
+    Args:
+        reset_logs: If True, clear all log files on startup (default: True)
     """
     # Create logs directory if it doesn't exist
     LOG_DIR.mkdir(parents=True, exist_ok=True)
+    
+    # Reset log files if requested
+    if reset_logs:
+        for log_file in ["app.log", "error.log", "access.log", "frontend.log"]:
+            log_path = LOG_DIR / log_file
+            if log_path.exists():
+                log_path.write_text("", encoding="utf-8")
     
     # Create formatter
     formatter = logging.Formatter(LOG_FORMAT, datefmt=DATE_FORMAT)

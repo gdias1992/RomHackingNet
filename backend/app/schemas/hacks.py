@@ -79,9 +79,10 @@ class HackDetail(HackBase):
 class HackImageResponse(BaseModel):
     """Hack image/screenshot response."""
 
-    imageid: int = Field(..., description="Image identifier")
+    imagekey: int = Field(..., description="Image identifier")
     filename: str = Field(..., description="Image filename")
-    caption: Optional[str] = Field(None, description="Image caption")
+    hackkey: int = Field(..., description="Associated hack ID")
+    gamekey: int = Field(..., description="Associated game ID")
 
     model_config = {"from_attributes": True}
 

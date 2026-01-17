@@ -82,9 +82,10 @@ class TranslationDetail(TranslationBase):
 class TransImageResponse(BaseModel):
     """Translation image/screenshot response."""
 
-    imageid: int = Field(..., description="Image identifier")
-    filename: str = Field(..., description="Image filename")
-    caption: Optional[str] = Field(None, description="Image caption")
+    imagekey: int = Field(..., description="Image identifier")
+    filename: Optional[str] = Field(None, description="Image filename")
+    transkey: int = Field(..., description="Associated translation ID")
+    gamekey: int = Field(..., description="Associated game ID")
 
     model_config = {"from_attributes": True}
 

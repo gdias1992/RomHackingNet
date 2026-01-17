@@ -17,12 +17,11 @@ class HackImage(SQLModel, table=True):
 
     __tablename__ = "hackimages"
 
-    imageid: int = Field(primary_key=True)
-    hackkey: Optional[int] = Field(default=None, foreign_key="hacks.hackkey")
-    gamekey: Optional[int] = Field(default=None, foreign_key="gamedata.gamekey")
-    groupkey: Optional[int] = Field(default=None)
-    filename: str = Field(max_length=255)
-    caption: Optional[str] = Field(default=None, max_length=255)
+    imagekey: int = Field(primary_key=True)
+    hackkey: int = Field(default=0, foreign_key="hacks.hackkey")
+    gamekey: int = Field(default=0, foreign_key="gamedata.gamekey")
+    groupkey: int = Field(default=0)
+    filename: str = Field(default="", max_length=50)
 
 
 class TransImage(SQLModel, table=True):
@@ -34,12 +33,11 @@ class TransImage(SQLModel, table=True):
 
     __tablename__ = "transimage"
 
-    imageid: int = Field(primary_key=True)
-    transkey: Optional[int] = Field(default=None, foreign_key="transdata.transkey")
-    gamekey: Optional[int] = Field(default=None, foreign_key="gamedata.gamekey")
-    groupkey: Optional[int] = Field(default=None)
-    filename: str = Field(max_length=255)
-    caption: Optional[str] = Field(default=None, max_length=255)
+    imagekey: int = Field(primary_key=True)
+    gamekey: int = Field(default=0, foreign_key="gamedata.gamekey")
+    transkey: int = Field(default=0, foreign_key="transdata.transkey")
+    groupkey: Optional[str] = Field(default=None, max_length=64)
+    filename: Optional[str] = Field(default=None, max_length=64)
 
 
 class Screenshot(SQLModel, table=True):

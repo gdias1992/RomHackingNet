@@ -264,9 +264,10 @@ class TranslationService:
 
         return [
             TransImageResponse(
-                imageid=img.imageid,
+                imagekey=img.imagekey,
                 filename=img.filename,
-                caption=img.caption,
+                transkey=img.transkey,
+                gamekey=img.gamekey,
             )
             for img in images
         ]

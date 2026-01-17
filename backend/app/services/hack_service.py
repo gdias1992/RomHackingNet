@@ -227,9 +227,10 @@ class HackService:
 
         return [
             HackImageResponse(
-                imageid=img.imageid,
+                imagekey=img.imagekey,
                 filename=img.filename,
-                caption=img.caption,
+                hackkey=img.hackkey,
+                gamekey=img.gamekey,
             )
             for img in images
         ]

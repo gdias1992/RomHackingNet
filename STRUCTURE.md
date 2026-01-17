@@ -62,9 +62,15 @@ RomHackingNet/
 │   ├── index.html       # Application entry point
 │   ├── package.json     # Node dependencies
 │   └── vite.config.ts   # Vite build configuration
+├── scripts/             # Utility scripts
+│   ├── Run-ApiTests.ps1 # PowerShell script to run API tests
+│   └── test_api.py      # Python API test script
 ├── README.md            # General project overview
 ├── STRUCTURE.md         # Directory map and documentation
-└── TECHNOLOGIES.md      # Detailed technology stack specification
+├── TECHNOLOGIES.md      # Detailed technology stack specification
+└── RomHackingNet.postman_collection.json  # Postman collection for all endpoints
+
+
 ```
 
 ## Component Breakdown
@@ -109,4 +115,9 @@ A modern React application built with **Vite**.
   - `useTranslations.ts`: Translation queries with language/status
 - **`src/features/`**: Follows a modular architecture where UI and logic are grouped by domain
 - **Performance**: Optimized for fast local browsing of large datasets with TanStack Query caching
+
+### `scripts/`
+Utility scripts for development and testing:
+- **`test_api.py`**: Python script that runs automated tests against all API endpoints
+- **`Run-ApiTests.ps1`**: PowerShell wrapper to activate the virtual environment and run tests
 

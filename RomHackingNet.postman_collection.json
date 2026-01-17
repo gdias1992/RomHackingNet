@@ -1,0 +1,805 @@
+{
+	"info": {
+		"_postman_id": "romhackingnet-api-collection",
+		"name": "RomHacking.net Archive Explorer API",
+		"description": "Complete API collection for the RomHacking.net Archive Explorer backend.\n\nBase URL: http://127.0.0.1:8000/api/v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "gameKey",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "hackKey",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "transKey",
+			"value": "1",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/health",
+							"host": ["{{baseUrl}}"],
+							"path": ["health"]
+						},
+						"description": "Check the health status of the API and database connection."
+					},
+					"response": []
+				}
+			],
+			"description": "Health check endpoints for monitoring API and database status."
+		},
+		{
+			"name": "Games",
+			"item": [
+				{
+					"name": "List Games",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/games?page=1&page_size=50&sort_by=gametitle&sort_order=asc",
+							"host": ["{{baseUrl}}"],
+							"path": ["games"],
+							"query": [
+								{
+									"key": "q",
+									"value": "",
+									"description": "Search query for title",
+									"disabled": true
+								},
+								{
+									"key": "platform",
+									"value": "",
+									"description": "Filter by platform ID",
+									"disabled": true
+								},
+								{
+									"key": "genre",
+									"value": "",
+									"description": "Filter by genre ID",
+									"disabled": true
+								},
+								{
+									"key": "has_hacks",
+									"value": "true",
+									"description": "Filter games with hacks",
+									"disabled": true
+								},
+								{
+									"key": "has_translations",
+									"value": "true",
+									"description": "Filter games with translations",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page number (default: 1)"
+								},
+								{
+									"key": "page_size",
+									"value": "50",
+									"description": "Items per page (1-200, default: 50)"
+								},
+								{
+									"key": "sort_by",
+									"value": "gametitle",
+									"description": "Sort field (default: gametitle)"
+								},
+								{
+									"key": "sort_order",
+									"value": "asc",
+									"description": "Sort order: asc or desc"
+								}
+							]
+						},
+						"description": "Get a paginated list of games with optional filters."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Game Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/games/{{gameKey}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["games", "{{gameKey}}"]
+						},
+						"description": "Get detailed information for a single game."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Game Hacks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/games/{{gameKey}}/hacks?page=1&page_size=50",
+							"host": ["{{baseUrl}}"],
+							"path": ["games", "{{gameKey}}", "hacks"],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page number"
+								},
+								{
+									"key": "page_size",
+									"value": "50",
+									"description": "Items per page"
+								}
+							]
+						},
+						"description": "Get all ROM hacks for a specific game."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Game Translations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/games/{{gameKey}}/translations?page=1&page_size=50",
+							"host": ["{{baseUrl}}"],
+							"path": ["games", "{{gameKey}}", "translations"],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page number"
+								},
+								{
+									"key": "page_size",
+									"value": "50",
+									"description": "Items per page"
+								}
+							]
+						},
+						"description": "Get all translations for a specific game."
+					},
+					"response": []
+				},
+				{
+					"name": "Search Games by Title",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/games?q=mario&page=1&page_size=20",
+							"host": ["{{baseUrl}}"],
+							"path": ["games"],
+							"query": [
+								{
+									"key": "q",
+									"value": "mario",
+									"description": "Search query for title"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "20"
+								}
+							]
+						},
+						"description": "Search games by title."
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Games by Platform",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/games?platform=1&page=1&page_size=20",
+							"host": ["{{baseUrl}}"],
+							"path": ["games"],
+							"query": [
+								{
+									"key": "platform",
+									"value": "1",
+									"description": "Filter by platform ID"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "20"
+								}
+							]
+						},
+						"description": "Filter games by platform/console."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for browsing and searching games."
+		},
+		{
+			"name": "Hacks",
+			"item": [
+				{
+					"name": "List Hacks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/hacks?page=1&page_size=50&sort_by=hacktitle&sort_order=asc",
+							"host": ["{{baseUrl}}"],
+							"path": ["hacks"],
+							"query": [
+								{
+									"key": "q",
+									"value": "",
+									"description": "Search query for title",
+									"disabled": true
+								},
+								{
+									"key": "game",
+									"value": "",
+									"description": "Filter by game ID",
+									"disabled": true
+								},
+								{
+									"key": "console",
+									"value": "",
+									"description": "Filter by console ID",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "",
+									"description": "Filter by category ID",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page number"
+								},
+								{
+									"key": "page_size",
+									"value": "50",
+									"description": "Items per page"
+								},
+								{
+									"key": "sort_by",
+									"value": "hacktitle",
+									"description": "Sort field"
+								},
+								{
+									"key": "sort_order",
+									"value": "asc",
+									"description": "Sort order"
+								}
+							]
+						},
+						"description": "Get a paginated list of ROM hacks with optional filters."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Hack Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/hacks/{{hackKey}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["hacks", "{{hackKey}}"]
+						},
+						"description": "Get detailed information for a single ROM hack."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Hack Images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/hacks/{{hackKey}}/images",
+							"host": ["{{baseUrl}}"],
+							"path": ["hacks", "{{hackKey}}", "images"]
+						},
+						"description": "Get all screenshots/images for a ROM hack."
+					},
+					"response": []
+				},
+				{
+					"name": "Search Hacks by Title",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/hacks?q=kaizo&page=1&page_size=20",
+							"host": ["{{baseUrl}}"],
+							"path": ["hacks"],
+							"query": [
+								{
+									"key": "q",
+									"value": "kaizo",
+									"description": "Search query"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "20"
+								}
+							]
+						},
+						"description": "Search ROM hacks by title."
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Hacks by Console",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/hacks?console=1&page=1&page_size=20",
+							"host": ["{{baseUrl}}"],
+							"path": ["hacks"],
+							"query": [
+								{
+									"key": "console",
+									"value": "1",
+									"description": "Console ID"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "20"
+								}
+							]
+						},
+						"description": "Filter ROM hacks by console."
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Hacks by Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/hacks?category=1&page=1&page_size=20",
+							"host": ["{{baseUrl}}"],
+							"path": ["hacks"],
+							"query": [
+								{
+									"key": "category",
+									"value": "1",
+									"description": "Category ID"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "20"
+								}
+							]
+						},
+						"description": "Filter ROM hacks by category."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for browsing and searching ROM hacks."
+		},
+		{
+			"name": "Translations",
+			"item": [
+				{
+					"name": "List Translations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/translations?page=1&page_size=50&sort_by=created&sort_order=desc",
+							"host": ["{{baseUrl}}"],
+							"path": ["translations"],
+							"query": [
+								{
+									"key": "q",
+									"value": "",
+									"description": "Search query (game title)",
+									"disabled": true
+								},
+								{
+									"key": "game",
+									"value": "",
+									"description": "Filter by game ID",
+									"disabled": true
+								},
+								{
+									"key": "console",
+									"value": "",
+									"description": "Filter by console ID",
+									"disabled": true
+								},
+								{
+									"key": "language",
+									"value": "",
+									"description": "Filter by language ID",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "",
+									"description": "Filter by patch status ID",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page number"
+								},
+								{
+									"key": "page_size",
+									"value": "50",
+									"description": "Items per page"
+								},
+								{
+									"key": "sort_by",
+									"value": "created",
+									"description": "Sort field"
+								},
+								{
+									"key": "sort_order",
+									"value": "desc",
+									"description": "Sort order"
+								}
+							]
+						},
+						"description": "Get a paginated list of translations with optional filters."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Translation Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/translations/{{transKey}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["translations", "{{transKey}}"]
+						},
+						"description": "Get detailed information for a single translation."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Translation Images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/translations/{{transKey}}/images",
+							"host": ["{{baseUrl}}"],
+							"path": ["translations", "{{transKey}}", "images"]
+						},
+						"description": "Get all screenshots/images for a translation."
+					},
+					"response": []
+				},
+				{
+					"name": "Search Translations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/translations?q=final fantasy&page=1&page_size=20",
+							"host": ["{{baseUrl}}"],
+							"path": ["translations"],
+							"query": [
+								{
+									"key": "q",
+									"value": "final fantasy",
+									"description": "Search query"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "20"
+								}
+							]
+						},
+						"description": "Search translations by game title."
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Translations by Language",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/translations?language=1&page=1&page_size=20",
+							"host": ["{{baseUrl}}"],
+							"path": ["translations"],
+							"query": [
+								{
+									"key": "language",
+									"value": "1",
+									"description": "Language ID"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "20"
+								}
+							]
+						},
+						"description": "Filter translations by language."
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Translations by Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/translations?status=1&page=1&page_size=20",
+							"host": ["{{baseUrl}}"],
+							"path": ["translations"],
+							"query": [
+								{
+									"key": "status",
+									"value": "1",
+									"description": "Patch status ID"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "20"
+								}
+							]
+						},
+						"description": "Filter translations by patch status."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for browsing and searching translations."
+		},
+		{
+			"name": "Metadata",
+			"item": [
+				{
+					"name": "Get All Metadata",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metadata",
+							"host": ["{{baseUrl}}"],
+							"path": ["metadata"]
+						},
+						"description": "Returns all lookup tables in a single request for initial app load."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Consoles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metadata/consoles",
+							"host": ["{{baseUrl}}"],
+							"path": ["metadata", "consoles"]
+						},
+						"description": "Returns all gaming platforms/consoles."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Genres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metadata/genres",
+							"host": ["{{baseUrl}}"],
+							"path": ["metadata", "genres"]
+						},
+						"description": "Returns all game genres."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Languages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metadata/languages",
+							"host": ["{{baseUrl}}"],
+							"path": ["metadata", "languages"]
+						},
+						"description": "Returns all translation languages."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patch Statuses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metadata/patch-statuses",
+							"host": ["{{baseUrl}}"],
+							"path": ["metadata", "patch-statuses"]
+						},
+						"description": "Returns all translation patch status options."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Hack Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metadata/categories/hacks",
+							"host": ["{{baseUrl}}"],
+							"path": ["metadata", "categories", "hacks"]
+						},
+						"description": "Returns all ROM hack categories."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Utility Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metadata/categories/utilities",
+							"host": ["{{baseUrl}}"],
+							"path": ["metadata", "categories", "utilities"]
+						},
+						"description": "Returns all utility categories."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Document Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metadata/categories/documents",
+							"host": ["{{baseUrl}}"],
+							"path": ["metadata", "categories", "documents"]
+						},
+						"description": "Returns all document categories."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Homebrew Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metadata/categories/homebrew",
+							"host": ["{{baseUrl}}"],
+							"path": ["metadata", "categories", "homebrew"]
+						},
+						"description": "Returns all homebrew categories."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Skill Levels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metadata/skill-levels",
+							"host": ["{{baseUrl}}"],
+							"path": ["metadata", "skill-levels"]
+						},
+						"description": "Returns all document skill/experience levels."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Operating Systems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/metadata/operating-systems",
+							"host": ["{{baseUrl}}"],
+							"path": ["metadata", "operating-systems"]
+						},
+						"description": "Returns all operating systems (for utilities)."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for fetching lookup/reference data."
+		},
+		{
+			"name": "Logging",
+			"item": [
+				{
+					"name": "Submit Frontend Log",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"level\": \"error\",\n    \"message\": \"Test error from Postman\",\n    \"stack\": \"Error: Test error\\n    at TestComponent (Test.tsx:10)\",\n    \"url\": \"/test-page\",\n    \"userAgent\": \"PostmanRuntime/7.x\",\n    \"timestamp\": \"2026-01-17T10:00:00.000Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/logs",
+							"host": ["{{baseUrl}}"],
+							"path": ["logs"]
+						},
+						"description": "Receives error reports from the React frontend application."
+					},
+					"response": []
+				}
+			],
+			"description": "Frontend logging endpoint for error reporting."
+		}
+	]
+}

@@ -22,7 +22,7 @@ class ConsoleResponse(BaseModel):
 class GenreResponse(BaseModel):
     """Genre response schema."""
 
-    genreid: int = Field(..., description="Unique genre identifier")
+    genrekey: int = Field(..., description="Unique genre identifier")
     description: str = Field(..., description="Genre name")
 
     model_config = {"from_attributes": True}
@@ -31,8 +31,9 @@ class GenreResponse(BaseModel):
 class LanguageResponse(BaseModel):
     """Language response schema."""
 
-    languageid: int = Field(..., description="Unique language identifier")
-    description: str = Field(..., description="Language name")
+    id: int = Field(..., description="Unique language identifier")
+    name: str = Field(..., description="Language name")
+    abbrev: Optional[str] = Field(None, description="Language abbreviation")
 
     model_config = {"from_attributes": True}
 
@@ -40,7 +41,8 @@ class LanguageResponse(BaseModel):
 class PatchStatusResponse(BaseModel):
     """Patch status response schema."""
 
-    statusid: int = Field(..., description="Unique status identifier")
+    id: int = Field(..., description="Unique status identifier")
+    statusletter: str = Field(..., description="Status letter code")
     description: str = Field(..., description="Status description")
 
     model_config = {"from_attributes": True}
@@ -49,8 +51,8 @@ class PatchStatusResponse(BaseModel):
 class CategoryResponse(BaseModel):
     """Generic category response schema (used for documents)."""
 
-    categoryid: int = Field(..., description="Unique category identifier")
-    description: str = Field(..., description="Category name")
+    categorykey: int = Field(..., description="Unique category identifier")
+    catname: str = Field(..., description="Category name")
 
     model_config = {"from_attributes": True}
 
@@ -58,8 +60,8 @@ class CategoryResponse(BaseModel):
 class HacksCatResponse(BaseModel):
     """Hacks category response schema."""
 
-    categoryid: int = Field(..., description="Unique category identifier")
-    description: str = Field(..., description="Category name")
+    categorykey: int = Field(..., description="Unique category identifier")
+    catname: str = Field(..., description="Category name")
 
     model_config = {"from_attributes": True}
 
@@ -67,8 +69,8 @@ class HacksCatResponse(BaseModel):
 class HomebrewCatResponse(BaseModel):
     """Homebrew category response schema."""
 
-    categoryid: int = Field(..., description="Unique category identifier")
-    description: str = Field(..., description="Category name")
+    categorykey: int = Field(..., description="Unique category identifier")
+    catname: str = Field(..., description="Category name")
 
     model_config = {"from_attributes": True}
 
@@ -76,8 +78,8 @@ class HomebrewCatResponse(BaseModel):
 class UtilCatResponse(BaseModel):
     """Utility category response schema."""
 
-    categoryid: int = Field(..., description="Unique category identifier")
-    description: str = Field(..., description="Category name")
+    categorykey: int = Field(..., description="Unique category identifier")
+    catname: str = Field(..., description="Category name")
 
     model_config = {"from_attributes": True}
 
@@ -85,8 +87,8 @@ class UtilCatResponse(BaseModel):
 class SkillLevelResponse(BaseModel):
     """Skill level response schema."""
 
-    levelid: int = Field(..., description="Unique level identifier")
-    description: str = Field(..., description="Skill level description")
+    id: int = Field(..., description="Unique level identifier")
+    name: str = Field(..., description="Skill level name")
 
     model_config = {"from_attributes": True}
 
@@ -94,8 +96,9 @@ class SkillLevelResponse(BaseModel):
 class OSResponse(BaseModel):
     """Operating system response schema."""
 
-    osid: int = Field(..., description="Unique OS identifier")
-    description: str = Field(..., description="OS name")
+    oskey: int = Field(..., description="Unique OS identifier")
+    name: str = Field(..., description="OS name")
+    description: str = Field(..., description="OS description")
 
     model_config = {"from_attributes": True}
 
