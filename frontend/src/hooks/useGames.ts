@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, type UseQueryOptions } from "@tanstack/react-query";
 import { apiClient } from "@/api/client";
 import type {
   GameDetail,
@@ -35,13 +35,19 @@ async function fetchGames(
   return response.data;
 }
 
+type GamesQueryOptions = Omit<
+  UseQueryOptions<PaginatedResponse<GameListItem>>,
+  "queryKey" | "queryFn"
+>;
+
 /**
  * Hook to fetch paginated games with filters.
  */
-export function useGames(params: GameQueryParams = {}) {
+export function useGames(params: GameQueryParams = {}, options?: GamesQueryOptions) {
   return useQuery({
     queryKey: ["games", params],
     queryFn: () => fetchGames(params),
+    ...options,
   });
 }
 

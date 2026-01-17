@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, type UseQueryOptions } from "@tanstack/react-query";
 import { apiClient } from "@/api/client";
 import type {
   HackDetail,
@@ -34,13 +34,19 @@ async function fetchHacks(
   return response.data;
 }
 
+type HacksQueryOptions = Omit<
+  UseQueryOptions<PaginatedResponse<HackListItem>>,
+  "queryKey" | "queryFn"
+>;
+
 /**
  * Hook to fetch paginated hacks with filters.
  */
-export function useHacks(params: HackQueryParams = {}) {
+export function useHacks(params: HackQueryParams = {}, options?: HacksQueryOptions) {
   return useQuery({
     queryKey: ["hacks", params],
     queryFn: () => fetchHacks(params),
+    ...options,
   });
 }
 

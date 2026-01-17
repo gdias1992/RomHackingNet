@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, type UseQueryOptions } from "@tanstack/react-query";
 import { apiClient } from "@/api/client";
 import type {
   PaginatedResponse,
@@ -34,13 +34,19 @@ async function fetchTranslations(
   return response.data;
 }
 
+type TranslationsQueryOptions = Omit<
+  UseQueryOptions<PaginatedResponse<TranslationListItem>>,
+  "queryKey" | "queryFn"
+>;
+
 /**
  * Hook to fetch paginated translations with filters.
  */
-export function useTranslations(params: TranslationQueryParams = {}) {
+export function useTranslations(params: TranslationQueryParams = {}, options?: TranslationsQueryOptions) {
   return useQuery({
     queryKey: ["translations", params],
     queryFn: () => fetchTranslations(params),
+    ...options,
   });
 }
 
