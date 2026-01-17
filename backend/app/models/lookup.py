@@ -35,7 +35,7 @@ class Genre(SQLModel, table=True):
 
     __tablename__ = "genres"
 
-    genreid: int = Field(primary_key=True)
+    genrekey: int = Field(primary_key=True)
     description: str = Field(max_length=100)
 
 
@@ -48,8 +48,9 @@ class Language(SQLModel, table=True):
 
     __tablename__ = "language"
 
-    languageid: int = Field(primary_key=True)
-    description: str = Field(max_length=100)
+    id: int = Field(primary_key=True)
+    name: str = Field(max_length=25)
+    abbrev: Optional[str] = Field(default=None, max_length=10)
 
 
 class PatchStatus(SQLModel, table=True):
@@ -61,8 +62,9 @@ class PatchStatus(SQLModel, table=True):
 
     __tablename__ = "patchstatus"
 
-    statusid: int = Field(primary_key=True)
-    description: str = Field(max_length=100)
+    id: int = Field(primary_key=True)
+    statusletter: str = Field(max_length=1)
+    description: str = Field(max_length=50)
 
 
 class Category(SQLModel, table=True):
@@ -74,8 +76,8 @@ class Category(SQLModel, table=True):
 
     __tablename__ = "category"
 
-    categoryid: int = Field(primary_key=True)
-    description: str = Field(max_length=100)
+    categorykey: int = Field(primary_key=True)
+    catname: str = Field(max_length=100)
 
 
 class HacksCat(SQLModel, table=True):
@@ -87,8 +89,8 @@ class HacksCat(SQLModel, table=True):
 
     __tablename__ = "hackscat"
 
-    categoryid: int = Field(primary_key=True)
-    description: str = Field(max_length=100)
+    categorykey: int = Field(primary_key=True)
+    catname: str = Field(max_length=100)
 
 
 class HomebrewCat(SQLModel, table=True):
@@ -100,8 +102,8 @@ class HomebrewCat(SQLModel, table=True):
 
     __tablename__ = "homebrewcat"
 
-    categoryid: int = Field(primary_key=True)
-    description: str = Field(max_length=100)
+    categorykey: int = Field(primary_key=True)
+    catname: str = Field(max_length=100)
 
 
 class UtilCat(SQLModel, table=True):
@@ -113,8 +115,8 @@ class UtilCat(SQLModel, table=True):
 
     __tablename__ = "utilcat"
 
-    categoryid: int = Field(primary_key=True)
-    description: str = Field(max_length=100)
+    categorykey: int = Field(primary_key=True)
+    catname: str = Field(max_length=50)
 
 
 class SkillLevel(SQLModel, table=True):
@@ -126,8 +128,8 @@ class SkillLevel(SQLModel, table=True):
 
     __tablename__ = "skilllevel"
 
-    levelid: int = Field(primary_key=True)
-    description: str = Field(max_length=100)
+    id: int = Field(primary_key=True)
+    name: str = Field(max_length=50)
 
 
 class OS(SQLModel, table=True):
@@ -139,8 +141,9 @@ class OS(SQLModel, table=True):
 
     __tablename__ = "os"
 
-    osid: int = Field(primary_key=True)
-    description: str = Field(max_length=100)
+    oskey: int = Field(primary_key=True)
+    name: str = Field(max_length=50)
+    description: str = Field(max_length=50)
 
 
 class License(SQLModel, table=True):
@@ -152,8 +155,8 @@ class License(SQLModel, table=True):
 
     __tablename__ = "licenses"
 
-    licenseid: int = Field(primary_key=True)
-    description: str = Field(max_length=255)
+    id: str = Field(primary_key=True, max_length=50)
+    name: str = Field(max_length=255)
 
 
 class Section(SQLModel, table=True):
@@ -165,8 +168,9 @@ class Section(SQLModel, table=True):
 
     __tablename__ = "sections"
 
-    sectionid: int = Field(primary_key=True)
-    description: str = Field(max_length=100)
+    id: int = Field(primary_key=True)
+    name: str = Field(max_length=50)
+    abb: str = Field(max_length=50)
 
 
 class PatchHints(SQLModel, table=True):
@@ -178,5 +182,5 @@ class PatchHints(SQLModel, table=True):
 
     __tablename__ = "patchhints"
 
-    hintid: int = Field(primary_key=True)
-    description: str = Field(max_length=255)
+    id: int = Field(primary_key=True)
+    description: str = Field(max_length=100)

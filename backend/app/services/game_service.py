@@ -56,7 +56,7 @@ class GameService:
                 Genre.description.label("genre_name"),
             )
             .outerjoin(Console, Game.platformid == Console.consoleid)
-            .outerjoin(Genre, Game.genreid == Genre.genreid)
+            .outerjoin(Genre, Game.genreid == Genre.genrekey)
         )
 
         # Apply filters
@@ -154,7 +154,7 @@ class GameService:
                 Genre.description.label("genre_name"),
             )
             .outerjoin(Console, Game.platformid == Console.consoleid)
-            .outerjoin(Genre, Game.genreid == Genre.genreid)
+            .outerjoin(Genre, Game.genreid == Genre.genrekey)
             .where(Game.gamekey == gamekey)
         )
 

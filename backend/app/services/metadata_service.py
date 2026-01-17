@@ -47,77 +47,77 @@ class MetadataService:
     async def get_languages(self, session: AsyncSession) -> list[Language]:
         """Get all languages."""
         result = await session.execute(
-            select(Language).order_by(Language.description)
+            select(Language).order_by(Language.name)
         )
         return list(result.scalars().all())
 
     async def get_patch_statuses(self, session: AsyncSession) -> list[PatchStatus]:
         """Get all patch statuses."""
         result = await session.execute(
-            select(PatchStatus).order_by(PatchStatus.statusid)
+            select(PatchStatus).order_by(PatchStatus.id)
         )
         return list(result.scalars().all())
 
     async def get_categories(self, session: AsyncSession) -> list[Category]:
         """Get all document categories."""
         result = await session.execute(
-            select(Category).order_by(Category.description)
+            select(Category).order_by(Category.catname)
         )
         return list(result.scalars().all())
 
     async def get_hack_categories(self, session: AsyncSession) -> list[HacksCat]:
         """Get all hack categories."""
         result = await session.execute(
-            select(HacksCat).order_by(HacksCat.description)
+            select(HacksCat).order_by(HacksCat.catname)
         )
         return list(result.scalars().all())
 
     async def get_homebrew_categories(self, session: AsyncSession) -> list[HomebrewCat]:
         """Get all homebrew categories."""
         result = await session.execute(
-            select(HomebrewCat).order_by(HomebrewCat.description)
+            select(HomebrewCat).order_by(HomebrewCat.catname)
         )
         return list(result.scalars().all())
 
     async def get_util_categories(self, session: AsyncSession) -> list[UtilCat]:
         """Get all utility categories."""
         result = await session.execute(
-            select(UtilCat).order_by(UtilCat.description)
+            select(UtilCat).order_by(UtilCat.catname)
         )
         return list(result.scalars().all())
 
     async def get_skill_levels(self, session: AsyncSession) -> list[SkillLevel]:
         """Get all skill levels."""
         result = await session.execute(
-            select(SkillLevel).order_by(SkillLevel.levelid)
+            select(SkillLevel).order_by(SkillLevel.id)
         )
         return list(result.scalars().all())
 
     async def get_operating_systems(self, session: AsyncSession) -> list[OS]:
         """Get all operating systems."""
         result = await session.execute(
-            select(OS).order_by(OS.description)
+            select(OS).order_by(OS.name)
         )
         return list(result.scalars().all())
 
     async def get_licenses(self, session: AsyncSession) -> list[License]:
         """Get all licenses."""
         result = await session.execute(
-            select(License).order_by(License.description)
+            select(License).order_by(License.name)
         )
         return list(result.scalars().all())
 
     async def get_sections(self, session: AsyncSession) -> list[Section]:
         """Get all sections."""
         result = await session.execute(
-            select(Section).order_by(Section.sectionid)
+            select(Section).order_by(Section.id)
         )
         return list(result.scalars().all())
 
     async def get_patch_hints(self, session: AsyncSession) -> list[PatchHints]:
         """Get all patch hints."""
         result = await session.execute(
-            select(PatchHints).order_by(PatchHints.hintid)
+            select(PatchHints).order_by(PatchHints.id)
         )
         return list(result.scalars().all())
 

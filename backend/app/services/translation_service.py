@@ -67,13 +67,13 @@ class TranslationService:
                 Translation,
                 Game.gametitle.label("game_title"),
                 Console.description.label("console_name"),
-                Language.description.label("language_name"),
+                Language.name.label("language_name"),
                 PatchStatus.description.label("status_name"),
             )
             .outerjoin(Game, Translation.gamekey == Game.gamekey)
             .outerjoin(Console, Translation.consolekey == Console.consoleid)
-            .outerjoin(Language, Translation.language == Language.languageid)
-            .outerjoin(PatchStatus, Translation.patchstatus == PatchStatus.statusid)
+            .outerjoin(Language, Translation.language == Language.id)
+            .outerjoin(PatchStatus, Translation.patchstatus == PatchStatus.id)
         )
 
         # Apply filters
@@ -130,7 +130,7 @@ class TranslationService:
             items.append(
                 TranslationListItem(
                     transkey=trans.transkey,
-                    version=trans.version,
+                    version=trans.patchver,
                     description=trans.description,
                     gamekey=trans.gamekey,
                     consolekey=trans.consolekey,
@@ -141,7 +141,7 @@ class TranslationService:
                     language_name=row[3],
                     status_name=row[4],
                     downloads=trans.downloads,
-                    releasedate=trans.releasedate,
+                    releasedate=trans.patchrel,
                     created=trans.created,
                     lastmod=trans.lastmod,
                 )
@@ -178,15 +178,15 @@ class TranslationService:
                 Translation,
                 Game.gametitle.label("game_title"),
                 Console.description.label("console_name"),
-                Language.description.label("language_name"),
+                Language.name.label("language_name"),
                 PatchStatus.description.label("status_name"),
                 PatchHints.description.label("patch_hint"),
             )
             .outerjoin(Game, Translation.gamekey == Game.gamekey)
             .outerjoin(Console, Translation.consolekey == Console.consoleid)
-            .outerjoin(Language, Translation.language == Language.languageid)
-            .outerjoin(PatchStatus, Translation.patchstatus == PatchStatus.statusid)
-            .outerjoin(PatchHints, Translation.hintskey == PatchHints.hintid)
+            .outerjoin(Language, Translation.language == Language.id)
+            .outerjoin(PatchStatus, Translation.patchstatus == PatchStatus.id)
+            .outerjoin(PatchHints, Translation.patchhint == PatchHints.id)
             .where(Translation.transkey == transkey)
         )
 
@@ -210,7 +210,7 @@ class TranslationService:
 
         return TranslationDetail(
             transkey=trans.transkey,
-            version=trans.version,
+            version=trans.patchver,
             description=trans.description,
             gamekey=trans.gamekey,
             consolekey=trans.consolekey,
@@ -222,12 +222,12 @@ class TranslationService:
             language_name=row[3],
             status_name=row[4],
             patch_hint=row[5],
-            filename=trans.filename,
-            filesize=trans.filesize,
+            filename=trans.patchfile,
+            filesize=None,
             downloads=trans.downloads,
-            releasedate=trans.releasedate,
-            patchtype=trans.patchtype,
-            hintskey=trans.hintskey,
+            releasedate=trans.patchrel,
+            patchtype=None,
+            hintskey=trans.patchhint,
             nofile=trans.nofile,
             noreadme=trans.noreadme,
             created=trans.created,

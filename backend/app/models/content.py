@@ -23,7 +23,7 @@ class Game(SQLModel, table=True):
     gametitle: str = Field(max_length=255, index=True)
     japtitle: Optional[str] = Field(default=None, max_length=255)
     platformid: Optional[int] = Field(default=None, foreign_key="console.consoleid")
-    genreid: Optional[int] = Field(default=None, foreign_key="genres.genreid")
+    genreid: Optional[int] = Field(default=None, foreign_key="genres.genrekey")
     publisher: Optional[str] = Field(default=None, max_length=255)
     
     # Existence flags for related content
@@ -53,20 +53,17 @@ class Hack(SQLModel, table=True):
     # Content details
     version: Optional[str] = Field(default=None, max_length=50)
     description: Optional[str] = Field(default=None)
-    releasedate: Optional[str] = Field(default=None, max_length=50)
+    reldate: Optional[str] = Field(default=None, max_length=50)
     
     # File information
     filename: Optional[str] = Field(default=None, max_length=255)
-    filesize: Optional[int] = Field(default=None)
     downloads: int = Field(default=0)
     
     # Patching information
-    patchtype: Optional[str] = Field(default=None, max_length=50)
-    hintskey: Optional[int] = Field(default=None, foreign_key="patchhints.hintid")
+    patchhint: Optional[int] = Field(default=None, foreign_key="patchhints.hintid")
     
     # Flags
     nofile: int = Field(default=0)
-    noreadme: int = Field(default=0)
     
     # Timestamps
     created: Optional[datetime] = Field(default=None)
@@ -90,18 +87,16 @@ class Translation(SQLModel, table=True):
     patchstatus: Optional[int] = Field(default=None, foreign_key="patchstatus.statusid")
     
     # Content details
-    version: Optional[str] = Field(default=None, max_length=50)
+    patchver: Optional[str] = Field(default=None, max_length=50)
     description: Optional[str] = Field(default=None)
-    releasedate: Optional[str] = Field(default=None, max_length=50)
+    patchrel: Optional[str] = Field(default=None, max_length=50)
     
     # File information
-    filename: Optional[str] = Field(default=None, max_length=255)
-    filesize: Optional[int] = Field(default=None)
+    patchfile: Optional[str] = Field(default=None, max_length=255)
     downloads: int = Field(default=0)
     
     # Patching information
-    patchtype: Optional[str] = Field(default=None, max_length=50)
-    hintskey: Optional[int] = Field(default=None, foreign_key="patchhints.hintid")
+    patchhint: Optional[int] = Field(default=None, foreign_key="patchhints.hintid")
     
     # Flags
     nofile: int = Field(default=0)

@@ -52,11 +52,11 @@ class HackService:
                 Hack,
                 Game.gametitle.label("game_title"),
                 Console.description.label("console_name"),
-                HacksCat.description.label("category_name"),
+                HacksCat.catname.label("category_name"),
             )
             .outerjoin(Game, Hack.gamekey == Game.gamekey)
             .outerjoin(Console, Hack.consolekey == Console.consoleid)
-            .outerjoin(HacksCat, Hack.category == HacksCat.categoryid)
+            .outerjoin(HacksCat, Hack.category == HacksCat.categorykey)
         )
 
         # Apply filters
@@ -115,7 +115,7 @@ class HackService:
                     console_name=row[2],
                     category_name=row[3],
                     downloads=hack.downloads,
-                    releasedate=hack.releasedate,
+                    releasedate=hack.reldate,
                     created=hack.created,
                     lastmod=hack.lastmod,
                 )
@@ -150,13 +150,13 @@ class HackService:
                 Hack,
                 Game.gametitle.label("game_title"),
                 Console.description.label("console_name"),
-                HacksCat.description.label("category_name"),
+                HacksCat.catname.label("category_name"),
                 PatchHints.description.label("patch_hint"),
             )
             .outerjoin(Game, Hack.gamekey == Game.gamekey)
             .outerjoin(Console, Hack.consolekey == Console.consoleid)
-            .outerjoin(HacksCat, Hack.category == HacksCat.categoryid)
-            .outerjoin(PatchHints, Hack.hintskey == PatchHints.hintid)
+            .outerjoin(HacksCat, Hack.category == HacksCat.categorykey)
+            .outerjoin(PatchHints, Hack.patchhint == PatchHints.id)
             .where(Hack.hackkey == hackkey)
         )
 
@@ -188,13 +188,13 @@ class HackService:
             category_name=row[3],
             patch_hint=row[4],
             filename=hack.filename,
-            filesize=hack.filesize,
+            filesize=None,
             downloads=hack.downloads,
-            releasedate=hack.releasedate,
-            patchtype=hack.patchtype,
-            hintskey=hack.hintskey,
+            releasedate=hack.reldate,
+            patchtype=None,
+            hintskey=hack.patchhint,
             nofile=hack.nofile,
-            noreadme=hack.noreadme,
+            noreadme=0,
             created=hack.created,
             lastmod=hack.lastmod,
             image_count=image_count,
