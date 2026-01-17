@@ -45,7 +45,7 @@ RomHackingNet/
 Holds project-level metadata, including specialized instructions for AI coding assistants and GitHub Actions.
 
 ### `.romhacking/`
-Reserved for the massive 2024 data backup. This folder is ignored by Git to keep the repository lightweight, but it is the primary source of data for the application.
+Reserved exclusively for storing the 2024 RomHacking.net end-of-life data backup. This directory is used solely for storage and as the read-only data source for the application. It is ignored by Git due to its massive size.
 
 ### `backend/`
 A modular Python backend using **FastAPI**.
