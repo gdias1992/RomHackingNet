@@ -36,7 +36,8 @@ RomHackingNet/
 │   ├── package.json     # Node dependencies
 │   └── vite.config.ts   # Vite build configuration
 ├── README.md            # General project overview
-└── STRUCTURE.md         # Directory map and documentation
+├── STRUCTURE.md         # Directory map and documentation
+└── TECHNOLOGIES.md      # Detailed technology stack specification
 ```
 
 ## Component Breakdown
