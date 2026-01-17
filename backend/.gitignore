@@ -14,7 +14,7 @@ __pycache__/
 htmlcov/
 
 # Local configuration
-.env
+# .env
 
 # Database
 *.sqlite
