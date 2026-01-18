@@ -13,8 +13,8 @@ This document tracks all tasks required to complete the RomHacking.net Archive E
 
 | Area | Completed | In Progress | Pending | Total |
 |------|-----------|-------------|---------|-------|
-| Backend | 5 | 0 | 12 | 17 |
-| Frontend | 5 | 0 | 10 | 15 |
+| Backend | 8 | 0 | 9 | 17 |
+| Frontend | 8 | 0 | 7 | 15 |
 | Infrastructure | 1 | 0 | 3 | 4 |
 | Documentation | 4 | 0 | 1 | 5 |
 
@@ -45,9 +45,9 @@ This document tracks all tasks required to complete the RomHacking.net Archive E
 | [ITEM-013](#-item-013-structuremd) | STRUCTURE.md | `docs` | 🟢 `done` | 🔸 |
 | [ITEM-014](#-item-014-technologiesmd) | TECHNOLOGIES.md | `docs` | 🟢 `done` | 🔻 |
 | [ITEM-015](#-item-015-loggingmd) | LOGGING.md | `docs` | 🟢 `done` | 🔻 |
-| [ITEM-020](#-item-020-utilities-api) | Utilities API | `backend` | 🔴 `pending` | 🔸 |
-| [ITEM-021](#-item-021-documents-api) | Documents API | `backend` | 🔴 `pending` | 🔸 |
-| [ITEM-022](#-item-022-homebrew-api) | Homebrew API | `backend` | 🔴 `pending` | 🔸 |
+| [ITEM-020](#-item-020-utilities-api) | Utilities API | `backend` | � `done` | 🔸 |
+| [ITEM-021](#-item-021-documents-api) | Documents API | `backend` | 🟢 `done` | 🔸 |
+| [ITEM-022](#-item-022-homebrew-api) | Homebrew API | `backend` | 🟢 `done` | 🔸 |
 | [ITEM-023](#-item-023-fonts-api) | Fonts API | `backend` | 🔴 `pending` | 🔻 |
 | [ITEM-024](#-item-024-extended-metadata-api) | Extended Metadata API | `backend` | 🔴 `pending` | 🔻 |
 | [ITEM-025](#-item-025-sync-game-model) | Sync Game Model | `backend` | 🔴 `pending` | 🔸 |
@@ -58,9 +58,9 @@ This document tracks all tasks required to complete the RomHacking.net Archive E
 | [ITEM-031](#-item-031-download-endpoint) | Download Endpoint | `backend` | 🔴 `pending` | 🔺 |
 | [ITEM-040](#-item-040-global-search-endpoint) | Global Search Endpoint | `backend` | 🔴 `pending` | 🔸 |
 | [ITEM-041](#-item-041-advanced-filtering) | Advanced Filtering | `backend` | 🔴 `pending` | 🔻 |
-| [ITEM-050](#-item-050-utilities-page) | Utilities Page | `frontend` | 🔴 `pending` | 🔸 |
-| [ITEM-051](#-item-051-documents-page) | Documents Page | `frontend` | 🔴 `pending` | 🔸 |
-| [ITEM-052](#-item-052-homebrew-page) | Homebrew Page | `frontend` | 🔴 `pending` | 🔸 |
+| [ITEM-050](#-item-050-utilities-page) | Utilities Page | `frontend` | � `done` | 🔸 |
+| [ITEM-051](#-item-051-documents-page) | Documents Page | `frontend` | 🟢 `done` | 🔸 |
+| [ITEM-052](#-item-052-homebrew-page) | Homebrew Page | `frontend` | 🟢 `done` | 🔸 |
 | [ITEM-053](#-item-053-fonts-page) | Fonts Page | `frontend` | 🔴 `pending` | 🔻 |
 | [ITEM-060](#-item-060-functional-download-buttons) | Functional Download Buttons | `frontend` | 🔴 `pending` | 🔺 |
 | [ITEM-061](#-item-061-file-preview) | File Preview | `frontend` | 🔴 `pending` | 🔻 |
@@ -625,20 +625,20 @@ Document logging architecture and standards.
 | Field | Value |
 |-------|-------|
 | **Area** | `backend` |
-| **Status** | 🔴 `pending` |
+| **Status** | � `done` |
 | **Priority** | 🔸 `medium` |
 | **Created** | 2026-01-18 |
-| **Started** | — |
-| **Completed** | — |
+| **Started** | 2026-01-18 |
+| **Completed** | 2026-01-18 |
 
 ### 📝 Description
 Create `/api/v1/utilities` endpoints with list, detail, and filtering by category, console, OS. Models exist in `secondary.py`.
 
 ### ✅ Subtasks
-- [ ] Create utility service
-- [ ] Create list endpoint with filters
-- [ ] Create detail endpoint
-- [ ] Add to router
+- [x] Create utility service
+- [x] Create list endpoint with filters
+- [x] Create detail endpoint
+- [x] Add to router
 
 ### 🚧 In Progress
 | Aspect | Details |
@@ -649,9 +649,10 @@ Create `/api/v1/utilities` endpoints with list, detail, and filtering by categor
 | **Notes** | — |
 
 ### ✔️ Completed
+**2026-01-18**
 | What | Files | Outcome |
 |------|-------|---------|
-| — | — | — |
+| Utilities CRUD endpoints | `backend/app/api/v1/utilities.py`, `backend/app/services/utility_service.py`, `backend/app/schemas/utilities.py` | `/api/v1/utilities` working |
 
 ---
 
@@ -660,20 +661,20 @@ Create `/api/v1/utilities` endpoints with list, detail, and filtering by categor
 | Field | Value |
 |-------|-------|
 | **Area** | `backend` |
-| **Status** | 🔴 `pending` |
+| **Status** | � `done` |
 | **Priority** | 🔸 `medium` |
 | **Created** | 2026-01-18 |
-| **Started** | — |
-| **Completed** | — |
+| **Started** | 2026-01-18 |
+| **Completed** | 2026-01-18 |
 
 ### 📝 Description
 Create `/api/v1/documents` endpoints with list, detail, and filtering by category, console, skill level. Models exist in `secondary.py`.
 
 ### ✅ Subtasks
-- [ ] Create document service
-- [ ] Create list endpoint with filters
-- [ ] Create detail endpoint
-- [ ] Add to router
+- [x] Create document service
+- [x] Create list endpoint with filters
+- [x] Create detail endpoint
+- [x] Add to router
 
 ### 🚧 In Progress
 | Aspect | Details |
@@ -684,9 +685,10 @@ Create `/api/v1/documents` endpoints with list, detail, and filtering by categor
 | **Notes** | — |
 
 ### ✔️ Completed
+**2026-01-18**
 | What | Files | Outcome |
 |------|-------|---------|
-| — | — | — |
+| Documents CRUD endpoints | `backend/app/api/v1/documents.py`, `backend/app/services/document_service.py`, `backend/app/schemas/documents.py` | `/api/v1/documents` working |
 
 ---
 
@@ -695,20 +697,20 @@ Create `/api/v1/documents` endpoints with list, detail, and filtering by categor
 | Field | Value |
 |-------|-------|
 | **Area** | `backend` |
-| **Status** | 🔴 `pending` |
+| **Status** | � `done` |
 | **Priority** | 🔸 `medium` |
 | **Created** | 2026-01-18 |
-| **Started** | — |
-| **Completed** | — |
+| **Started** | 2026-01-18 |
+| **Completed** | 2026-01-18 |
 
 ### 📝 Description
 Create `/api/v1/homebrew` endpoints with list, detail, and filtering by category, platform. Models exist in `secondary.py`.
 
 ### ✅ Subtasks
-- [ ] Create homebrew service
-- [ ] Create list endpoint with filters
-- [ ] Create detail endpoint
-- [ ] Add to router
+- [x] Create homebrew service
+- [x] Create list endpoint with filters
+- [x] Create detail endpoint
+- [x] Add to router
 
 ### 🚧 In Progress
 | Aspect | Details |
@@ -1086,34 +1088,35 @@ Add date range filters, download count sorting, and multi-value filters (e.g., m
 | Field | Value |
 |-------|-------|
 | **Area** | `frontend` |
-| **Status** | 🔴 `pending` |
+| **Status** | � `done` |
 | **Priority** | 🔸 `medium` |
 | **Created** | 2026-01-18 |
-| **Started** | — |
-| **Completed** | — |
+| **Started** | 2026-01-18 |
+| **Completed** | 2026-01-18 |
 
 ### 📝 Description
 Create `UtilitiesPage.tsx` and `UtilityDetailPage.tsx`. Remove "Soon" badge from navigation. Add `useUtilities` hook.
 
 ### ✅ Subtasks
-- [ ] Create useUtilities hook
-- [ ] Create UtilitiesPage with list view
-- [ ] Create UtilityDetailPage
-- [ ] Remove disabled flag from navigation
-- [ ] Add routes to App.tsx
+- [x] Create useUtilities hook
+- [x] Create UtilitiesPage with list view
+- [x] Create UtilityDetailPage
+- [x] Remove disabled flag from navigation
+- [x] Add routes to App.tsx
 
 ### 🚧 In Progress
 | Aspect | Details |
 |--------|---------|
 | **Focus** | — |
-| **Blockers** | Requires ITEM-020 (Utilities API) |
+| **Blockers** | — |
 | **Decisions** | — |
 | **Notes** | — |
 
 ### ✔️ Completed
+**2026-01-18**
 | What | Files | Outcome |
 |------|-------|---------|
-| — | — | — |
+| Utilities frontend pages | `frontend/src/hooks/useUtilities.ts`, `frontend/src/pages/UtilitiesPage.tsx`, `frontend/src/pages/UtilityDetailPage.tsx` | Utilities list and detail views working |
 
 ---
 
@@ -1122,34 +1125,35 @@ Create `UtilitiesPage.tsx` and `UtilityDetailPage.tsx`. Remove "Soon" badge from
 | Field | Value |
 |-------|-------|
 | **Area** | `frontend` |
-| **Status** | 🔴 `pending` |
+| **Status** | � `done` |
 | **Priority** | 🔸 `medium` |
 | **Created** | 2026-01-18 |
-| **Started** | — |
-| **Completed** | — |
+| **Started** | 2026-01-18 |
+| **Completed** | 2026-01-18 |
 
 ### 📝 Description
 Create `DocumentsPage.tsx` and `DocumentDetailPage.tsx`. Remove "Soon" badge from navigation. Add `useDocuments` hook.
 
 ### ✅ Subtasks
-- [ ] Create useDocuments hook
-- [ ] Create DocumentsPage with list view
-- [ ] Create DocumentDetailPage
-- [ ] Remove disabled flag from navigation
-- [ ] Add routes to App.tsx
+- [x] Create useDocuments hook
+- [x] Create DocumentsPage with list view
+- [x] Create DocumentDetailPage
+- [x] Remove disabled flag from navigation
+- [x] Add routes to App.tsx
 
 ### 🚧 In Progress
 | Aspect | Details |
 |--------|---------|
 | **Focus** | — |
-| **Blockers** | Requires ITEM-021 (Documents API) |
+| **Blockers** | — |
 | **Decisions** | — |
 | **Notes** | — |
 
 ### ✔️ Completed
+**2026-01-18**
 | What | Files | Outcome |
 |------|-------|---------|
-| — | — | — |
+| Documents frontend pages | `frontend/src/hooks/useDocuments.ts`, `frontend/src/pages/DocumentsPage.tsx`, `frontend/src/pages/DocumentDetailPage.tsx` | Documents list and detail views working |
 
 ---
 
@@ -1158,34 +1162,35 @@ Create `DocumentsPage.tsx` and `DocumentDetailPage.tsx`. Remove "Soon" badge fro
 | Field | Value |
 |-------|-------|
 | **Area** | `frontend` |
-| **Status** | 🔴 `pending` |
+| **Status** | � `done` |
 | **Priority** | 🔸 `medium` |
 | **Created** | 2026-01-18 |
-| **Started** | — |
-| **Completed** | — |
+| **Started** | 2026-01-18 |
+| **Completed** | 2026-01-18 |
 
 ### 📝 Description
 Create `HomebrewPage.tsx` and `HomebrewDetailPage.tsx`. Remove "Soon" badge from navigation. Add `useHomebrew` hook.
 
 ### ✅ Subtasks
-- [ ] Create useHomebrew hook
-- [ ] Create HomebrewPage with list view
-- [ ] Create HomebrewDetailPage
-- [ ] Remove disabled flag from navigation
-- [ ] Add routes to App.tsx
+- [x] Create useHomebrew hook
+- [x] Create HomebrewPage with list view
+- [x] Create HomebrewDetailPage
+- [x] Remove disabled flag from navigation
+- [x] Add routes to App.tsx
 
 ### 🚧 In Progress
 | Aspect | Details |
 |--------|---------|
 | **Focus** | — |
-| **Blockers** | Requires ITEM-022 (Homebrew API) |
+| **Blockers** | — |
 | **Decisions** | — |
 | **Notes** | — |
 
 ### ✔️ Completed
+**2026-01-18**
 | What | Files | Outcome |
 |------|-------|---------|
-| — | — | — |
+| Homebrew frontend pages | `frontend/src/hooks/useHomebrew.ts`, `frontend/src/pages/HomebrewPage.tsx`, `frontend/src/pages/HomebrewDetailPage.tsx` | Homebrew list and detail views working |
 
 ---
 

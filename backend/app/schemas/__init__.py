@@ -3,6 +3,12 @@ Pydantic Schemas: Request/Response validation models.
 """
 
 from app.schemas.common import HealthResponse, MessageResponse, PaginatedResponse
+from app.schemas.documents import (
+    DocumentBase,
+    DocumentDetail,
+    DocumentListItem,
+    DocumentQueryParams,
+)
 from app.schemas.games import (
     GameBase,
     GameDetail,
@@ -15,6 +21,12 @@ from app.schemas.hacks import (
     HackImageResponse,
     HackListItem,
     HackQueryParams,
+)
+from app.schemas.homebrew import (
+    HomebrewBase,
+    HomebrewDetail,
+    HomebrewListItem,
+    HomebrewQueryParams,
 )
 from app.schemas.metadata import (
     AllMetadataResponse,
@@ -38,6 +50,12 @@ from app.schemas.translations import (
     TranslationDetail,
     TranslationListItem,
     TranslationQueryParams,
+)
+from app.schemas.utilities import (
+    UtilityBase,
+    UtilityDetail,
+    UtilityListItem,
+    UtilityQueryParams,
 )
 
 __all__ = [
@@ -77,4 +95,19 @@ __all__ = [
     "TranslationDetail",
     "TranslationListItem",
     "TranslationQueryParams",
+    # Utilities
+    "UtilityBase",
+    "UtilityDetail",
+    "UtilityListItem",
+    "UtilityQueryParams",
+    # Documents
+    "DocumentBase",
+    "DocumentDetail",
+    "DocumentListItem",
+    "DocumentQueryParams",
+    # Homebrew
+    "HomebrewBase",
+    "HomebrewDetail",
+    "HomebrewListItem",
+    "HomebrewQueryParams",
 ]

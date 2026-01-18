@@ -49,6 +49,9 @@ class APITester:
             "game_id": None,
             "hack_id": None,
             "translation_id": None,
+            "utility_id": None,
+            "document_id": None,
+            "homebrew_id": None,
         }
 
     def _make_request(
@@ -170,6 +173,15 @@ class APITester:
 
         # Translations Tests
         self._run_translations_tests()
+
+        # Utilities Tests
+        self._run_utilities_tests()
+
+        # Documents Tests
+        self._run_documents_tests()
+
+        # Homebrew Tests
+        self._run_homebrew_tests()
 
         # Logging Tests
         self._run_logging_tests()
@@ -332,6 +344,123 @@ class APITester:
             )
         else:
             print("  ⚠️  Skipping translation detail tests (no translation ID found)")
+
+    def _run_utilities_tests(self) -> None:
+        """Run utilities endpoint tests."""
+        self._print_section("Utilities Endpoints")
+
+        # List utilities and extract an ID
+        self._run_test(
+            "List Utilities",
+            "/utilities",
+            params={"page": 1, "page_size": 10},
+            extract_id="utility_id",
+        )
+
+        # Test with filters
+        self._run_test(
+            "List Utilities (with search)",
+            "/utilities",
+            params={"q": "editor", "page": 1, "page_size": 10},
+        )
+        self._run_test(
+            "List Utilities (with category filter)",
+            "/utilities",
+            params={"category": 1, "page": 1, "page_size": 10},
+        )
+        self._run_test(
+            "List Utilities (with console filter)",
+            "/utilities",
+            params={"console": 1, "page": 1, "page_size": 10},
+        )
+
+        # Detail tests
+        util_id = self.discovered_ids.get("utility_id")
+        if util_id:
+            self._run_test(
+                "Get Utility Details",
+                f"/utilities/{util_id}",
+            )
+        else:
+            print("  ⚠️  Skipping utility detail tests (no utility ID found)")
+
+    def _run_documents_tests(self) -> None:
+        """Run documents endpoint tests."""
+        self._print_section("Documents Endpoints")
+
+        # List documents and extract an ID
+        self._run_test(
+            "List Documents",
+            "/documents",
+            params={"page": 1, "page_size": 10},
+            extract_id="document_id",
+        )
+
+        # Test with filters
+        self._run_test(
+            "List Documents (with search)",
+            "/documents",
+            params={"q": "guide", "page": 1, "page_size": 10},
+        )
+        self._run_test(
+            "List Documents (with category filter)",
+            "/documents",
+            params={"category": 1, "page": 1, "page_size": 10},
+        )
+        self._run_test(
+            "List Documents (with skill_level filter)",
+            "/documents",
+            params={"skill_level": 1, "page": 1, "page_size": 10},
+        )
+
+        # Detail tests
+        doc_id = self.discovered_ids.get("document_id")
+        if doc_id:
+            self._run_test(
+                "Get Document Details",
+                f"/documents/{doc_id}",
+            )
+        else:
+            print("  ⚠️  Skipping document detail tests (no document ID found)")
+
+    def _run_homebrew_tests(self) -> None:
+        """Run homebrew endpoint tests."""
+        self._print_section("Homebrew Endpoints")
+
+        # List homebrew and extract an ID
+        self._run_test(
+            "List Homebrew",
+            "/homebrew",
+            params={"page": 1, "page_size": 10},
+            extract_id="homebrew_id",
+        )
+
+        # Test with filters
+        self._run_test(
+            "List Homebrew (with search)",
+            "/homebrew",
+            params={"q": "game", "page": 1, "page_size": 10},
+        )
+        self._run_test(
+            "List Homebrew (with category filter)",
+            "/homebrew",
+            params={"category": 1, "page": 1, "page_size": 10},
+        )
+        self._run_test(
+            "List Homebrew (with platform filter)",
+            "/homebrew",
+            params={"platform": 1, "page": 1, "page_size": 10},
+        )
+
+        # Detail tests
+        homebrew_id = self.discovered_ids.get("homebrew_id")
+        if homebrew_id:
+            self._run_test(
+                "Get Homebrew Details",
+                f"/homebrew/{homebrew_id}",
+            )
+        else:
+            print("  ⚠️  Skipping homebrew detail tests (no homebrew ID found)")
 
     def _run_logging_tests(self) -> None:
         """Run logging endpoint tests."""

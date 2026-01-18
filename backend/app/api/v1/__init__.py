@@ -5,7 +5,17 @@ Includes all endpoint routers for version 1 of the API.
 
 from fastapi import APIRouter
 
-from app.api.v1 import games, hacks, health, logs, metadata, translations
+from app.api.v1 import (
+    documents,
+    games,
+    hacks,
+    health,
+    homebrew,
+    logs,
+    metadata,
+    translations,
+    utilities,
+)
 
 router = APIRouter(prefix="/v1")
 
@@ -22,4 +32,9 @@ router.include_router(metadata.router)
 router.include_router(games.router)
 router.include_router(hacks.router)
 router.include_router(translations.router)
+
+# Secondary content endpoints
+router.include_router(utilities.router)
+router.include_router(documents.router)
+router.include_router(homebrew.router)
 

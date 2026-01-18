@@ -242,3 +242,123 @@ export interface TranslationQueryParams {
   sort_order?: "asc" | "desc";
 }
 
+// =============================================================================
+// Utility Types
+// =============================================================================
+
+export interface UtilityListItem {
+  utilkey: number;
+  title: string;
+  version: string | null;
+  description: string | null;
+  categorykey: number | null;
+  consolekey: number | null;
+  gamekey: number | null;
+  os: number | null;
+  category_name: string | null;
+  console_name: string | null;
+  game_title: string | null;
+  os_name: string | null;
+  downloads: number;
+  reldate: number | null;
+  created: string | null;
+  lastmod: string | null;
+}
+
+export interface UtilityDetail extends UtilityListItem {
+  authorkey: number | null;
+  license: string | null;
+  source: string | null;
+  filename: string | null;
+  nofile: number;
+}
+
+export interface UtilityQueryParams {
+  q?: string;
+  category?: number;
+  console?: number;
+  os?: number;
+  page?: number;
+  page_size?: number;
+  sort_by?: string;
+  sort_order?: "asc" | "desc";
+}
+
+// =============================================================================
+// Document Types
+// =============================================================================
+
+export interface DocumentListItem {
+  dockey: number;
+  title: string;
+  description: string | null;
+  categorykey: number | null;
+  consolekey: number | null;
+  gamekey: number | null;
+  explevel: number | null;
+  category_name: string | null;
+  console_name: string | null;
+  game_title: string | null;
+  skill_level: string | null;
+  downloads: number;
+  created: string | null;
+  lastmod: string | null;
+}
+
+export interface DocumentDetail extends DocumentListItem {
+  authorkey: number | null;
+  version: string | null;
+  filename: string | null;
+  reldate: number | null;
+  nofile: number;
+}
+
+export interface DocumentQueryParams {
+  q?: string;
+  category?: number;
+  console?: number;
+  skill_level?: number;
+  page?: number;
+  page_size?: number;
+  sort_by?: string;
+  sort_order?: "asc" | "desc";
+}
+
+// =============================================================================
+// Homebrew Types
+// =============================================================================
+
+export interface HomebrewListItem {
+  homebrewkey: number;
+  title: string;
+  version: string | null;
+  description: string | null;
+  categorykey: number | null;
+  platformkey: number | null;
+  category_name: string | null;
+  platform_name: string | null;
+  downloads: number;
+  reldate: string | null;
+  created: string | null;
+  lastmod: string | null;
+}
+
+export interface HomebrewDetail extends HomebrewListItem {
+  authorkey: number | null;
+  filename: string | null;
+  titlescreen: string | null;
+  readme: string | null;
+  nofile: number;
+  noreadme: number;
+}
+
+export interface HomebrewQueryParams {
+  q?: string;
+  category?: number;
+  platform?: number;
+  page?: number;
+  page_size?: number;
+  sort_by?: string;
+  sort_order?: "asc" | "desc";
+}
+

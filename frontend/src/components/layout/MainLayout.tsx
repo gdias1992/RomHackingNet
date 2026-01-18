@@ -26,9 +26,9 @@ const navItems = [
   { to: "/games", icon: Gamepad2, label: "Games" },
   { to: "/hacks", icon: Wrench, label: "ROM Hacks" },
   { to: "/translations", icon: Languages, label: "Translations" },
-  { to: "/utilities", icon: Package, label: "Utilities", disabled: true },
-  { to: "/documents", icon: FileText, label: "Documents", disabled: true },
-  { to: "/homebrew", icon: Joystick, label: "Homebrew", disabled: true },
+  { to: "/utilities", icon: Package, label: "Utilities" },
+  { to: "/documents", icon: FileText, label: "Documents" },
+  { to: "/homebrew", icon: Joystick, label: "Homebrew" },
 ];
 
 /**

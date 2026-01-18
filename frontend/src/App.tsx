@@ -8,6 +8,12 @@ import {
   HackDetailPage,
   TranslationsPage,
   TranslationDetailPage,
+  UtilitiesPage,
+  UtilityDetailPage,
+  DocumentsPage,
+  DocumentDetailPage,
+  HomebrewPage,
+  HomebrewDetailPage,
 } from "@/pages";
 
 function App() {
@@ -22,6 +28,12 @@ function App() {
           <Route path="/hacks/:id" element={<HackDetailPage />} />
           <Route path="/translations" element={<TranslationsPage />} />
           <Route path="/translations/:id" element={<TranslationDetailPage />} />
+          <Route path="/utilities" element={<UtilitiesPage />} />
+          <Route path="/utilities/:id" element={<UtilityDetailPage />} />
+          <Route path="/documents" element={<DocumentsPage />} />
+          <Route path="/documents/:id" element={<DocumentDetailPage />} />
+          <Route path="/homebrew" element={<HomebrewPage />} />
+          <Route path="/homebrew/:id" element={<HomebrewDetailPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

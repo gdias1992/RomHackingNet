@@ -25,5 +25,14 @@ export {
 } from "./useTranslations";
 
 // Utility hooks
+export { useUtilities, useUtility } from "./useUtilities";
+
+// Document hooks
+export { useDocuments, useDocument } from "./useDocuments";
+
+// Homebrew hooks
+export { useHomebrews, useHomebrew } from "./useHomebrew";
+
+// Common utility hooks
 export { useDebounce } from "./useDebounce";
 export { useUrlState } from "./useUrlState";
