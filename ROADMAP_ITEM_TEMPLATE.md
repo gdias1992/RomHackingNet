@@ -1,3 +1,10 @@
+# 📋 Roadmap Item Template
+
+> **Usage:** Each roadmap item in `ROADMAP.md` must follow this exact format for consistency.  
+> Copy the template below when creating new items.
+
+---
+
 ## 🆔 [ITEM-XXX] Task Title
 
 | Field | Value |
@@ -10,59 +17,29 @@
 | **Completed** | — |
 
 ### 📝 Description
-
 A clear and concise description of what needs to be accomplished.
 
 ### ✅ Subtasks
-
 - [ ] Subtask 1
 - [ ] Subtask 2
 - [ ] Subtask 3
 
----
-
 ### 🚧 In Progress
+> _Current work, blockers, and pending decisions._
 
-> _What is currently being worked on._
-
-#### Current Focus
-<!-- The specific task or subtask actively being developed -->
-
-- 
-
-#### Blockers
-<!-- Any issues preventing progress -->
-
-- 
-
-#### Decisions Pending
-<!-- Questions or choices that need to be resolved -->
-
-- 
-
-#### Notes
-<!-- Additional context, observations, or reminders -->
-
-- 
-
----
+| Aspect | Details |
+|--------|---------|
+| **Focus** | What is actively being developed |
+| **Blockers** | Issues preventing progress |
+| **Decisions** | Questions needing resolution |
+| **Notes** | Additional context or reminders |
 
 ### ✔️ Completed
+> _Log of completed work._
 
-> _Detailed log of what has been done._
-
-#### YYYY-MM-DD
-<!-- Date of completion -->
-
-**What was done:**
-- 
-
-**Files changed:**
-- `path/to/file` — Description of change
-
-**Outcome:**
-<!-- Result, impact, or verification notes -->
-
-- 
+**YYYY-MM-DD**
+| What | Files | Outcome |
+|------|-------|---------|
+| Description of work done | `path/to/file` | Result or verification |
 
 ---
