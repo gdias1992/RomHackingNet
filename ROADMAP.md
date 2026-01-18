@@ -5,6 +5,8 @@ This document tracks all tasks required to complete the RomHacking.net Archive E
 > **Format Reference:** Each roadmap item **must** follow the exact format defined in [ROADMAP_ITEM_TEMPLATE.md](ROADMAP_ITEM_TEMPLATE.md).  
 > When adding new items, copy the template and fill in all fields.
 
+> **⚠️ Maintenance Policy:** This roadmap **must** be updated upon completion of every task. Mark items as `done`, fill in the completion date, and update the Progress Overview table accordingly.
+
 ---
 
 ## 📊 Progress Overview
